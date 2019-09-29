@@ -100,7 +100,7 @@ extension SpreadsheetView {
         layout(scrollView: rowHeaderView)
     }
 
-    public func layoutTableView() {
+    private func layoutTableView() {
         layout(scrollView: tableView)
     }
 
@@ -146,7 +146,7 @@ extension SpreadsheetView {
                                 insets: .zero)
     }
 
-    public func resetLayoutProperties() -> LayoutProperties {
+    func resetLayoutProperties() -> LayoutProperties {
         guard let dataSource = dataSource else {
             return LayoutProperties()
         }
