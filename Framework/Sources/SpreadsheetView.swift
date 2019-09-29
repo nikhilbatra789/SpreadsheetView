@@ -314,7 +314,7 @@ public class SpreadsheetView: UIView {
         return overlayView
     }
 
-    var layoutProperties = LayoutProperties()
+    public var layoutProperties = LayoutProperties()
 
     let rootView = UIScrollView()
     let overlayView = UIScrollView()

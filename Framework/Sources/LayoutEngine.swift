@@ -95,10 +95,12 @@ final class LayoutEngine {
             if circularScrollingOptions.tableStyle.contains(.rowHeaderNotRepeated) && startRow > 0 && row < frozenRows {
                 continue
             }
-
-            let stop = enumerateColumns(currentRow: row, currentRowIndex: rowIndex)
-            if stop {
-                break
+            
+            if (rowHeightCache[row] != 0) {
+                let stop = enumerateColumns(currentRow: row, currentRowIndex: rowIndex)
+                if stop {
+                    break
+                }
             }
             cellOrigin.y += rowHeightCache[row] + intercellSpacing.height
         }
@@ -512,7 +514,7 @@ final class LayoutEngine {
     }
 }
 
-struct LayoutProperties {
+public struct LayoutProperties {
     let numberOfColumns: Int
     let numberOfRows: Int
     let frozenColumns: Int
