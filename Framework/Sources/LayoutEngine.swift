@@ -96,11 +96,13 @@ final class LayoutEngine {
                 continue
             }
 
-            let stop = enumerateColumns(currentRow: row, currentRowIndex: rowIndex)
-            if stop {
-                break
+            if rowHeightCache[row] != 0 {
+                let stop = enumerateColumns(currentRow: row, currentRowIndex: rowIndex)
+                if stop {
+                    break
+                }
+                cellOrigin.y += rowHeightCache[row] + intercellSpacing.height
             }
-            cellOrigin.y += rowHeightCache[row] + intercellSpacing.height
         }
 
         renderMergedCells()
